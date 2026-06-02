@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Schedule · Nikfit{% endblock %}
+
+{% block content %}
+<section class="hero compact">
+  <div class="container">
+    <div class="eyebrow">Week of {{ week_of }}</div>
+    <h1 class="h1">This week.</h1>
+    <p class="lede">Group classes and small groups are drop-in with a heads up. One-on-one slots are booked through inquiry.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="container">
+    {% for day in days %}
+    <div class="day-block">
+      <h3>{{ day.name }}</h3>
+      {% if day.sessions %}
+        {% for s in day.sessions %}
+        <div class="session">
+          <span class="session-time">{{ s.time }}</span>
+          <span>
+            {{ s.name }}
+            <span class="session-note">{{ s.note }}</span>
+          </span>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="session-closed">rest day</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <div style="margin-top:2.5rem">
+      <a href="inquire.html" class="btn btn-primary">Inquire about a slot</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

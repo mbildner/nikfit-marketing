@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inquire · Nikfit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">Nikfit</a>
+      <div class="nav-links">
+        <a href="schedule.html" >Schedule</a>
+        <a href="inquire.html" class="active">Inquire</a>
+      </div>
+    </div>
+  </nav>
+
+  
+<section class="hero compact">
+  <div class="container">
+    <div class="eyebrow">Inquire</div>
+    <h1 class="h1">Let's <em>talk.</em></h1>
+    <p class="lede">Tell me a little about what you're hoping to work on. I read every inquiry myself and usually reply within a day.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="container">
+    <div class="note">
+      <strong>What happens next:</strong> a 15-minute call to figure out if it's a fit and what a plan could look like.
+    </div>
+
+    <form action="/thanks.html" method="POST"
+          name="inquiry"
+          data-netlify="true"
+          netlify-honeypot="company">
+      <input type="hidden" name="form-name" value="inquiry">
+      <p hidden aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="company" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required
+               placeholder="(201) 555-0123"
+               pattern="(?=(?:\D*\d){10})[\d\s\(\)\.\-+]{10,30}"
+               title="Enter a phone number with at least 10 digits (e.g. (201) 555-0123).">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required
+               pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+               title="Enter a valid email address (e.g. you@example.com).">
+      </div>
+      <div class="field">
+        <label for="interest">What are you interested in?</label>
+        <select id="interest" name="interest">
+          <option>One-on-one training</option>
+          <option>Small group</option>
+          <option>Pre/postnatal coaching</option>
+          <option>Just exploring</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Anything I should know? (optional)</label>
+        <textarea id="message" name="message" placeholder="Injuries, goals, schedule constraints, what you've tried before."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send inquiry</button>
+    </form>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Find me</h4>
+          <a href="https://instagram.com/nikfit.training">@nikfit.training</a><br>
+          <a href="tel:+12015550127">(201) 555-0127</a><br>
+          hello@nikfit.studio
+        </div>
+        <div>
+          <h4>Where</h4>
+          Teaneck, NJ<br>
+          Serving Bergen County<br>
+          Mon–Sat · By appointment
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Nikfit · Coached by Nikki Stein
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

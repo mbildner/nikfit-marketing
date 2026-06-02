@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Nikfit · Personal training in Teaneck, NJ{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Personal training · Teaneck, NJ</div>
+    <h1 class="h1">Training that meets you<br><em>where you are.</em></h1>
+    <p class="lede">One-on-one, small group, and pre/postnatal coaching. Built around your real life.</p>
+    <div class="btns">
+      <a href="inquire.html" class="btn btn-primary">Book an intro call</a>
+      <a href="schedule.html" class="btn btn-secondary">See this week's schedule</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What this is</h2>
+    <p>Every plan starts from where you actually are. I work with women rebuilding strength after pregnancy, men who've never picked up a barbell, and runners trying to fix what hurts.</p>
+    <p>Whatever you're bringing in, we'll figure out a plan.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>This week, at a glance</h2>
+    {% for row in schedule_preview %}
+    <div class="snapshot-row">
+      <span class="snapshot-day">{{ row.day }}</span>
+      <span><span class="snapshot-time">{{ row.time }}</span>{{ row.name }}</span>
+      <span class="tag tag-{{ row.tag_key }}">{{ row.tag }}</span>
+    </div>
+    {% endfor %}
+    <a href="schedule.html" class="see-more">See full week →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What people say</h2>
+    {% for t in testimonials %}
+    <blockquote class="quote">{{ t.quote }}</blockquote>
+    <div class="quote-attr">{{ t.name }}, {{ t.town }}</div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
