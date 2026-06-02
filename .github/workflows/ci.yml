@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  render-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+
+      - name: Render templates
+        run: uv run render.py
+
+      - name: Verify out/ matches committed templates
+        run: |
+          if ! git diff --quiet out/; then
+            echo "::error::out/ is stale. Run 'uv run render.py' locally and commit the diff."
+            git --no-pager diff out/ | head -50
+            exit 1
+          fi
