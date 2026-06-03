@@ -284,25 +284,15 @@ form .err:empty { display: none; }
 form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
 
 .note {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  color: var(--c-fg);
-  background: rgba(174, 140, 163, 0.10);
-  margin: 0 0 2rem;
-  padding: 1.2rem 1.4rem;
+  background: rgba(149, 217, 218, 0.18);
+  border-left: 3px solid var(--c-cyan);
+  padding: 0.9rem 1.1rem;
   border-radius: 6px;
-  max-width: 560px;
-  line-height: 1.55;
-}
-.note strong {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.93rem;
   color: var(--c-fg);
-  display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.6rem;
+  max-width: 600px;
+  line-height: 1.5;
 }
 
 /* Footer */
