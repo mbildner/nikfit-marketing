@@ -1,0 +1,13 @@
+{
+  "_comment": "Declarative Netlify config. scripts/configure_netlify.py only CREATES missing resources — it never updates, deletes, or re-enables existing ones. Disable hooks via dashboard without CI fighting back.",
+  "site_id": "09f68195-7594-43e5-ba39-d9d46eeafa71",
+  "form_notifications": [
+    {
+      "type": "email",
+      "event": "submission_created",
+      "data": {
+        "email": "nikki.b.fit@gmail.com"
+      }
+    }
+  ]
+}

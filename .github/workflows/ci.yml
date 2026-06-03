@@ -23,3 +23,32 @@ jobs:
             git --no-pager diff out/ | head -50
             exit 1
           fi
+
+  configure-netlify:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+
+      - name: Verify NETLIFY_AUTH_TOKEN secret is set
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN repo secret is not set."
+            echo ""
+            echo "To fix:"
+            echo "  1. Create a PAT at:"
+            echo "     https://app.netlify.com/user/applications#personal-access-tokens"
+            echo "  2. Save it to this repo:"
+            echo "     gh secret set NETLIFY_AUTH_TOKEN -R mbildner/nikfit-marketing"
+            echo "  3. Re-run this workflow."
+            exit 1
+          fi
+
+      - name: Sync Netlify site config
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: uv run scripts/configure_netlify.py

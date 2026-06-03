@@ -32,6 +32,28 @@ The inquiry form has `data-netlify="true"`. Submissions appear in:
 
 Spam protection: honeypot field (`company`) + Akismet.
 
+## Netlify config (CI)
+
+`netlify-config.json` declares the desired Netlify state (form submission
+notifications, etc.). `scripts/configure_netlify.py` runs in CI on every push
+to `main` and **creates missing resources only**. It never updates, deletes,
+or re-enables existing ones — so disabling a notification via dashboard sticks.
+
+One-time setup of state that isn't enforced by CI (initial bootstrap):
+
+```bash
+# Allow form detection (Netlify defaults this to true on some sites, which
+# silently breaks data-netlify form processing).
+netlify api updateSite --data '{"site_id":"<site_id>","body":{"processing_settings":{"ignore_html_forms":false,"html":{"pretty_urls":true}}}}'
+```
+
+CI requires the `NETLIFY_AUTH_TOKEN` repo secret. Create a PAT at
+https://app.netlify.com/user/applications#personal-access-tokens, then:
+
+```bash
+gh secret set NETLIFY_AUTH_TOKEN -R mbildner/nikfit-marketing
+```
+
 ## Pre-launch private review gate
 
 `netlify/edge-functions/basic-auth.ts` is an HTTP Basic Auth gate. It's a **no-op by default**. To turn it on:
