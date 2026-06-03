@@ -106,6 +106,7 @@ def main() -> None:
         rendered = env.get_template(name).render(**ctx)
         (OUT / name).write_text(rendered)
     shutil.copy(STATIC / "style.css", OUT / "style.css")
+    shutil.copy(STATIC / "inquiry-validator.js", OUT / "inquiry-validator.js")
     print(f"Rendered {len(PAGES)} pages to {OUT}")
     print(f"  → file://{(OUT / 'index.html').resolve()}")
 
