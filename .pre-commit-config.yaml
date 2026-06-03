@@ -59,3 +59,11 @@ repos:
         pass_filenames: false
         files: ^(templates/.*|static/.*|render\.py)$
         require_serial: true
+
+      # JS unit tests (node:test stdlib runner; zero runtime deps).
+      - id: js-tests
+        name: JS unit tests (yarn test)
+        entry: yarn test
+        language: system
+        pass_filenames: false
+        files: ^(static/.*\.js|tests/.*\.test\.js|package\.json)$

@@ -4,3 +4,13 @@ __pycache__/
 .DS_Store
 .env
 .env.*
+
+# Yarn (PnP off via .yarnrc.yml; only install state needs ignoring)
+node_modules/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

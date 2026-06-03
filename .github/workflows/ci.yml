@@ -23,6 +23,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  js-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Enable corepack (provides yarn)
+        run: corepack enable
+
+      - name: yarn install --immutable
+        run: yarn install --immutable
+
+      - name: yarn test
+        run: yarn test
+
   render-check:
     runs-on: ubuntu-latest
     steps:

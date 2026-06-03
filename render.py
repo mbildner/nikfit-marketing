@@ -107,6 +107,7 @@ def main() -> None:
         (OUT / name).write_text(rendered)
     shutil.copy(STATIC / "style.css", OUT / "style.css")
     shutil.copy(STATIC / "inquiry-validator.js", OUT / "inquiry-validator.js")
+    shutil.copy(STATIC / "phone-format.js", OUT / "phone-format.js")
     print(f"Rendered {len(PAGES)} pages to {OUT}")
     print(f"  → file://{(OUT / 'index.html').resolve()}")
 

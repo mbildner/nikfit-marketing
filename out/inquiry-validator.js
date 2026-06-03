@@ -65,6 +65,24 @@
       if (!skip(inputs[i])) attach(inputs[i]);
     }
 
+    // Phone auto-formatter (US "(XXX) XXX-XXXX", '+' prefix passes through).
+    // Defined in static/phone-format.js. If the file failed to load, skip
+    // silently — the input still works, just without auto-formatting.
+    var phoneEl = form.querySelector('#phone');
+    if (phoneEl && typeof window.formatPhone === 'function') {
+      phoneEl.addEventListener('input', function(){
+        try {
+          var next = window.formatPhone(phoneEl.value);
+          if (next !== phoneEl.value) {
+            phoneEl.value = next;
+            try { phoneEl.setSelectionRange(next.length, next.length); } catch (e) {}
+          }
+        } catch (e) {
+          safeWarn('phone formatter failed open', e);
+        }
+      });
+    }
+
     form.addEventListener('submit', function(e){
       try {
         var first = null;

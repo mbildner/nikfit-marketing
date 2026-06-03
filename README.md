@@ -13,6 +13,10 @@ Static marketing site for Nikfit (`nik.fit`). Hosted on Netlify, deployed from `
 ```bash
 uv run render.py        # rebuild out/
 open out/index.html     # preview
+
+corepack enable         # one-time: bundles yarn with Node
+yarn install            # one-time: no runtime deps, but keeps lockfile honest
+yarn test               # run JS unit tests
 ```
 
 ## Quality tooling (one-time setup)
