@@ -286,11 +286,23 @@ form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
 .note {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
-  color: var(--c-gray-mid);
-  margin-bottom: 1.8rem;
+  font-size: 1.15rem;
+  color: var(--c-fg);
+  margin: 0 0 2rem;
+  padding-top: 1rem;
   max-width: 560px;
-  line-height: 1.55;
+  line-height: 1.5;
+  position: relative;
+}
+.note::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 2px;
+  background: var(--c-mauve);
 }
 .note strong {
   font-family: var(--font-sans);
@@ -301,7 +313,7 @@ form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
   letter-spacing: 0.08em;
   color: var(--c-fg);
   display: block;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Footer */
