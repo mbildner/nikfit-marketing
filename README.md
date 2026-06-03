@@ -15,6 +15,24 @@ uv run render.py        # rebuild out/
 open out/index.html     # preview
 ```
 
+## Quality tooling (one-time setup)
+
+```bash
+uv tool install pre-commit   # or: brew install pre-commit
+pre-commit install           # wires up the git pre-commit hook
+```
+
+Hooks installed (see `.pre-commit-config.yaml`):
+- file hygiene (trailing whitespace, EOL, JSON/YAML/TOML syntax, max file size)
+- `ruff check` (lint, with bandit-style security checks)
+- `gitleaks` (refuse committed secrets)
+- render-check (out/ matches templates after re-render)
+
+Bypass for emergencies, with a reason in the commit message:
+```bash
+git commit --no-verify
+```
+
 ## Deploy
 
 Push to `main`. Netlify auto-deploys `out/` within ~10 seconds.

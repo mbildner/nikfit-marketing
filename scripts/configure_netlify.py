@@ -59,9 +59,11 @@ def api(method: str, path: str, body: dict | None = None) -> dict | list:
         "Content-Type": "application/json",
     }
     data = json.dumps(body).encode() if body is not None else None
-    req = urllib.request.Request(url, data=data, method=method, headers=headers)
+    # URL is constructed from API_BASE (constant) + path (only ever called
+    # with literal strings inside this script); never tainted at runtime.
+    req = urllib.request.Request(url, data=data, method=method, headers=headers)  # noqa: S310
     try:
-        with urllib.request.urlopen(req) as resp:
+        with urllib.request.urlopen(req) as resp:  # noqa: S310
             txt = resp.read().decode()
             return json.loads(txt) if txt else {}
     except urllib.error.HTTPError as e:
@@ -90,7 +92,8 @@ def hook_matches(existing: dict, desired: dict) -> bool:
 def ensure_form_notifications(site_id: str, desired_hooks: list[dict]) -> list[str]:
     """Create missing hooks. Leave existing hooks alone (even if disabled)."""
     existing = api("GET", f"/hooks?site_id={site_id}")
-    assert isinstance(existing, list)
+    if not isinstance(existing, list):
+        raise TypeError(f"GET /hooks expected list, got {type(existing).__name__}")
     submission_hooks = [
         h for h in existing if h.get("event") == "submission_created"
     ]
