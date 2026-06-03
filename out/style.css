@@ -72,6 +72,11 @@ body {
   transition: color 0.15s ease;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--c-mauve); }
+.nav-links a.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
 
 /* Hero */
 .hero {
@@ -136,7 +141,7 @@ body {
 .btn-secondary:hover { border-color: var(--c-mauve); color: var(--c-mauve); }
 
 /* Sections */
-.section { padding: 3.25rem 0; border-top: 1px solid rgba(162, 171, 181, 0.25); }
+.section { padding: 3.25rem 0; }
 .section h2 {
   font-family: var(--font-serif);
   font-weight: 500;
@@ -279,15 +284,24 @@ form .err:empty { display: none; }
 form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
 
 .note {
-  background: rgba(149, 217, 218, 0.18);
-  border-left: 3px solid var(--c-cyan);
-  padding: 0.9rem 1.1rem;
-  border-radius: 6px;
-  font-size: 0.93rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--c-gray-mid);
+  margin-bottom: 1.8rem;
+  max-width: 560px;
+  line-height: 1.55;
+}
+.note strong {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--c-fg);
-  margin-bottom: 1.6rem;
-  max-width: 600px;
-  line-height: 1.5;
+  display: block;
+  margin-bottom: 0.35rem;
 }
 
 /* Footer */
