@@ -49,6 +49,9 @@ def get_token() -> str:
 TOKEN = get_token()
 
 
+ROTATION_RUNBOOK = "https://corklight.atlassian.net/browse/NIKFIT-13"
+
+
 def api(method: str, path: str, body: dict | None = None) -> dict | list:
     url = f"{API_BASE}{path}"
     headers = {
@@ -66,6 +69,13 @@ def api(method: str, path: str, body: dict | None = None) -> dict | list:
             err_body = e.read().decode()
         except Exception:
             err_body = "<unreadable>"
+        if e.code == 401:
+            sys.exit(
+                f"::error::Netlify API returned 401. The NETLIFY_AUTH_TOKEN "
+                f"PAT is almost certainly expired or revoked.\n\n"
+                f"Rotation runbook: {ROTATION_RUNBOOK}\n\n"
+                f"Raw response: {err_body}"
+            )
         sys.exit(f"API error {e.code} on {method} {path}: {err_body}")
 
 
