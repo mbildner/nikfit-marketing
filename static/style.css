@@ -344,5 +344,7 @@ form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
   .snapshot-row .tag { grid-column: 1 / -1; justify-self: start; margin-top: 0.15rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.4rem; }
   .hero { padding: 3rem 0 2.5rem; }
+  .hero .container { text-align: center; }
+  .hero .btns { justify-content: center; }
   .session { grid-template-columns: 4.6rem 1fr; }
 }
