@@ -288,6 +288,13 @@ form .err:empty { display: none; }
 form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
 .field-group-hint { font-size: 0.88rem; color: var(--c-muted); margin: 0.4rem 0 0.8rem; }
 
+/* Breadcrumbs (inner pages only) */
+.breadcrumbs { font-size: 0.85rem; color: var(--c-muted); padding: 1rem 0 0; font-family: var(--font-sans); }
+.breadcrumbs a { color: var(--c-fg); text-decoration: none; border-bottom: 1px dotted rgba(31, 31, 34, 0.3); }
+.breadcrumbs a:hover { border-bottom-color: var(--c-fg); }
+.breadcrumbs .sep { color: var(--c-gray-light); margin: 0 0.25rem; }
+.breadcrumbs [aria-current="page"] { color: var(--c-fg); }
+
 .note {
   background: rgba(149, 217, 218, 0.18);
   border-left: 3px solid var(--c-cyan);

@@ -10,6 +10,7 @@ Output is served by the FastAPI app at /demo/ (see app/main.py).
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 from pathlib import Path
 
@@ -72,6 +73,32 @@ days = [
 
 SITE_URL = "https://nik.fit"
 
+
+def _breadcrumb_jsonld(items):
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i + 1,
+                "name": item["name"],
+                "item": f"{SITE_URL}/" if item["url"] == "index.html" else f"{SITE_URL}/{item['url']}",
+            }
+            for i, item in enumerate(items)
+        ],
+    }, indent=2)
+
+
+_schedule_breadcrumb = [
+    {"name": "Home", "url": "index.html"},
+    {"name": "Schedule", "url": "schedule.html"},
+]
+_inquire_breadcrumb = [
+    {"name": "Home", "url": "index.html"},
+    {"name": "Inquire", "url": "inquire.html"},
+]
+
 PAGES = {
     "index.html": {
         "page": "home",
@@ -86,11 +113,15 @@ PAGES = {
         "canonical": f"{SITE_URL}/schedule.html",
         "week_of": "June 1",
         "days": days,
+        "breadcrumb": _schedule_breadcrumb,
+        "breadcrumb_jsonld": _breadcrumb_jsonld(_schedule_breadcrumb),
     },
     "inquire.html": {
         "page": "inquire",
         "description": "Inquire about personal training, small-group classes, or pre/postnatal coaching at Nikfit in Teaneck, NJ. Nikki replies within a day.",
         "canonical": f"{SITE_URL}/inquire.html",
+        "breadcrumb": _inquire_breadcrumb,
+        "breadcrumb_jsonld": _breadcrumb_jsonld(_inquire_breadcrumb),
     },
     "thanks.html": {
         "page": "inquire",

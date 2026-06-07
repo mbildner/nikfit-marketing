@@ -111,6 +111,11 @@
     ]
   }
   </script>
+  {% if breadcrumb_jsonld %}
+  <script type="application/ld+json">
+{{ breadcrumb_jsonld | safe }}
+  </script>
+  {% endif %}
 </head>
 <body>
   <nav class="nav">
@@ -122,6 +127,20 @@
       </div>
     </div>
   </nav>
+
+  {% if breadcrumb %}
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+      {%- for crumb in breadcrumb -%}
+        {%- if loop.last -%}
+          <span aria-current="page">{{ crumb.name }}</span>
+        {%- else -%}
+          <a href="{{ crumb.url }}">{{ crumb.name }}</a><span class="sep" aria-hidden="true"> › </span>
+        {%- endif -%}
+      {%- endfor %}
+    </div>
+  </nav>
+  {% endif %}
 
   {% block content %}{% endblock %}
 
