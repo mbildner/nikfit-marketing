@@ -95,9 +95,10 @@
                data-error="Please enter your name.">
         <span class="err" id="name-error" aria-live="polite"></span>
       </div>
+      <p class="field-group-hint">How can I reach you? Phone, email, or both — at least one.</p>
       <div class="field">
         <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" required
+        <input type="tel" id="phone" name="phone"
                placeholder="(201) 555-0123"
                pattern="(?=(?:\D*\d){10})[\d\s\(\)\.\-+]{10,30}"
                aria-describedby="phone-error"
@@ -106,7 +107,7 @@
       </div>
       <div class="field">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required
+        <input type="email" id="email" name="email"
                pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
                aria-describedby="email-error"
                data-error="Please enter a valid email address.">

@@ -32,6 +32,11 @@
     };
 
     var getMessage = function(el){
+      // Custom-validity messages (e.g. cross-field "phone OR email") take
+      // priority over the per-field data-error fallback.
+      if (el.validity && el.validity.customError && el.validationMessage) {
+        return el.validationMessage;
+      }
       var ds = el.getAttribute ? el.getAttribute('data-error') : null;
       if (ds) return ds;
       if (el.title) return el.title;
@@ -65,10 +70,27 @@
       if (!skip(inputs[i])) attach(inputs[i]);
     }
 
+    // Cross-field rule: at least one of phone / email must be provided.
+    // Implemented via setCustomValidity on phone so the existing paint
+    // pipeline surfaces it. Re-checked on input of either field.
+    var phoneEl = form.querySelector('#phone');
+    var emailEl = form.querySelector('#email');
+    var checkContactMethod = function(){
+      if (!phoneEl || !emailEl) return;
+      var phoneVal = (phoneEl.value || '').replace(/\s/g, '');
+      var emailVal = (emailEl.value || '').replace(/\s/g, '');
+      if (!phoneVal && !emailVal) {
+        try { phoneEl.setCustomValidity('Phone or email is required so I can reply.'); } catch (e) {}
+      } else {
+        try { phoneEl.setCustomValidity(''); } catch (e) {}
+      }
+    };
+    if (phoneEl) phoneEl.addEventListener('input', function(){ try { checkContactMethod(); paint(phoneEl); } catch (e) {} });
+    if (emailEl) emailEl.addEventListener('input', function(){ try { checkContactMethod(); paint(phoneEl); } catch (e) {} });
+
     // Phone auto-formatter (US "(XXX) XXX-XXXX", '+' prefix passes through).
     // Defined in static/phone-format.js. If the file failed to load, skip
     // silently — the input still works, just without auto-formatting.
-    var phoneEl = form.querySelector('#phone');
     if (phoneEl && typeof window.formatPhone === 'function') {
       phoneEl.addEventListener('input', function(){
         try {
@@ -85,6 +107,9 @@
 
     form.addEventListener('submit', function(e){
       try {
+        // Re-evaluate the phone-or-email rule before walking field validity
+        // so a stale customValidity from earlier interaction doesn't linger.
+        checkContactMethod();
         var first = null;
         for (var j = 0; j < inputs.length; j++) {
           var el = inputs[j];
