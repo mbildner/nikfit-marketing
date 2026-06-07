@@ -329,8 +329,8 @@ form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
   margin-bottom: 0.55rem;
   font-weight: 600;
 }
-.footer-grid a { color: var(--c-fg); text-decoration: none; }
-.footer-grid a:hover { color: var(--c-mauve); }
+.footer-grid a { color: var(--c-fg); text-decoration: none; border-bottom: 1px dotted rgba(31, 31, 34, 0.3); }
+.footer-grid a:hover { color: var(--c-mauve); border-bottom-color: var(--c-mauve); }
 .footer-bottom {
   font-size: 0.82rem;
   color: var(--c-gray-light);
