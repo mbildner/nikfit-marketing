@@ -1,5 +1,16 @@
 # nikfit-marketing
 
+> **⚠️ Auto-managed snapshot repo (as of NIKFIT-16).** Source of truth is now
+> `mbildner/nikfit` (`app/marketing/`). The `out/` directory here is
+> overwritten on every deploy from nikfit's admin console — each commit
+> tagged `Deploy <id>: ...` is a Netlify deployment snapshot, not a source
+> edit. Hand-edits to `templates/` / `render.py` here are no longer
+> authoritative; the live site won't reflect them.
+>
+> Pre-NIKFIT-16 deploy mechanism (Netlify continuous-deploy on push to main)
+> is still active as a transitional state — slated to be disconnected so
+> nikfit's Deploy button is the only writer.
+
 Static marketing site for Nikfit (`nik.fit`). Hosted on Netlify, deployed from `main`.
 
 ## Stack
