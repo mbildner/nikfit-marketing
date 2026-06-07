@@ -91,6 +91,7 @@ PAGES = {
         "page": "inquire",
         "description": "Thanks for your inquiry. Nikki replies within a day.",
         "canonical": f"{SITE_URL}/thanks.html",
+        "noindex": True,
     },
 }
 
@@ -104,6 +105,8 @@ def main(dev: bool = False) -> None:
     shutil.copy(STATIC / "inquiry-validator.js", OUT / "inquiry-validator.js")
     shutil.copy(STATIC / "phone-format.js", OUT / "phone-format.js")
     shutil.copy(STATIC / "og-image.jpg", OUT / "og-image.jpg")
+    shutil.copy(STATIC / "robots.txt", OUT / "robots.txt")
+    shutil.copy(STATIC / "sitemap.xml", OUT / "sitemap.xml")
     if dev:
         shutil.copy(STATIC / "livereload.js", OUT / "livereload.js")
     print(f"Rendered {len(PAGES)} pages to {OUT} (dev={dev})")

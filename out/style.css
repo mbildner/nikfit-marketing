@@ -61,6 +61,9 @@ body {
   background: var(--c-cyan);
   align-self: center;
 }
+@media (max-width: 600px) {
+  .brand-suffix { display: none; }
+}
 .nav-links {
   display: flex;
   gap: 1.6rem;
