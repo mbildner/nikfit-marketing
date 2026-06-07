@@ -36,14 +36,19 @@ schedule_preview = [
 
 testimonials = [
     {
-        "quote": "I quit every workout program I've ever started except this one. Nikki was the first trainer who actually listened when I said my back was a mess. Six months in, my back is the strongest it's been since college.",
-        "name": "Sarah K.",
-        "town": "Cresskill",
+        "quote": "At my daughter's suggestion, I started working with Nikki six years ago and haven't stopped since. No two workouts are identical - she keeps things fresh and adapts to my evolving needs, always challenging me to reach new goals while encouraging me in the most positive way. I call her my 'fitness coach' because she is so much more than a personal trainer.",
+        "name": "Ronit H.",
+        "town": "Teaneck",
     },
     {
-        "quote": "I worked with Nikki through both of my pregnancies. She knows exactly when to push and when to back off. I came back to the same body weight twice but felt three times stronger.",
-        "name": "Maya R.",
-        "town": "Tenafly",
+        "quote": "Taking classes with Nikki has been an absolute blast. Every class challenges me in the best way, pushing me beyond what I thought I could do while still making it fun and empowering. I leave feeling stronger, more energized, and proud of what my body can accomplish. Nikki has created something really special and I'm so grateful to be a part of it.",
+        "name": "Denise F.",
+        "town": "Teaneck",
+    },
+    {
+        "quote": "Working out has never been a hobby of mine until I met Nikki. She's fantastic! I've been going to personal trainers for years and always dreaded the sessions. Now I'm always eager and excited. Nikki empowers you while making you feel like you can do anything. I do both private training and group Pilates and they're both so much fun. I gave birth to my third baby in August and was looking to tone up my post-baby body. Nikki is the best at what she does. Give her a shot, you won't be disappointed.",
+        "name": "Jordana S.",
+        "town": "Teaneck",
     },
 ]
 

@@ -43,7 +43,7 @@ body {
   justify-content: space-between;
 }
 .brand {
-  font-family: var(--font-serif);
+  font-family: 'Playfair Display', var(--font-serif);
   font-weight: 600;
   font-size: 1.4rem;
   letter-spacing: -0.02em;
@@ -97,7 +97,7 @@ body {
   margin-bottom: 1.1rem;
 }
 .h1 {
-  font-family: var(--font-serif);
+  font-family: 'Playfair Display', var(--font-serif);
   font-weight: 500;
   font-size: clamp(2.2rem, 5.5vw, 3.4rem);
   line-height: 1.08;
@@ -229,7 +229,6 @@ body {
 /* Testimonial */
 .quote {
   font-family: var(--font-serif);
-  font-style: italic;
   font-weight: 400;
   font-size: 1.18rem;
   line-height: 1.5;
