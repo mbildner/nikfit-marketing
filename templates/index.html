@@ -4,9 +4,9 @@
 {% block content %}
 <section class="hero">
   <div class="container">
-    <div class="eyebrow">Personal training · Teaneck, NJ</div>
-    <h1 class="h1">Training that meets you<br><em>where you are.</em></h1>
-    <p class="lede">One-on-one, small group, and pre/postnatal coaching. Built around your real life.</p>
+    <div class="eyebrow">Private Women's Training Studio · Teaneck, NJ</div>
+    <h1 class="h1">Life happens.<br><em>Let's make you strong again.</em></h1>
+    <p class="lede">For women ready to feel like themselves again — postnatal recovery, body confidence, and training that fits your real life.</p>
     <div class="btns">
       <a href="inquire.html" class="btn btn-primary">Book an intro call</a>
       <a href="schedule.html" class="btn btn-secondary">See this week's schedule</a>
@@ -16,23 +16,21 @@
 
 <section class="section">
   <div class="container">
-    <h2>What this is</h2>
-    <p>Every plan starts from where you actually are. I work with women rebuilding strength after pregnancy, men who've never picked up a barbell, and runners trying to fix what hurts.</p>
-    <p>Whatever you're bringing in, we'll figure out a plan.</p>
+    <h2>The Experience</h2>
+    <p>This is your time. Inside Nikfit's private studio, every detail is designed around you, your body, your goals, your life. With 10+ years of personal training experience and program design, I'll build a program tailored to help you look and feel like the best version of yourself.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>This week, at a glance</h2>
-    {% for row in schedule_preview %}
-    <div class="snapshot-row">
-      <span class="snapshot-day">{{ row.day }}</span>
-      <span><span class="snapshot-time">{{ row.time }}</span>{{ row.name }}</span>
-      <span class="tag tag-{{ row.tag_key }}">{{ row.tag }}</span>
-    </div>
-    {% endfor %}
-    <a href="schedule.html" class="see-more">See full week →</a>
+    <h2>Train With Me</h2>
+    <p>One-on-one personal training, intimate Pilates sculpt, HIIT, and strength classes — all in a private studio, all built around you.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <a href="schedule.html" class="btn btn-secondary">View Schedule & Book a Class</a>
   </div>
 </section>
 

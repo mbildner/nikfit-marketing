@@ -9,6 +9,7 @@ Output is served by the FastAPI app at /demo/ (see app/main.py).
 """
 from __future__ import annotations
 
+import argparse
 import shutil
 from pathlib import Path
 
@@ -48,69 +49,69 @@ testimonials = [
 
 days = [
     {"name": "Monday", "sessions": [
-        {"time": "6:30 am", "name": "HIIT", "note": "Group · drop-in with a heads up"},
-        {"time": "9:30 am", "name": "Pre/Postnatal", "note": "Small group · 6 max"},
-        {"time": "11:00 am", "name": "1-on-1 slots", "note": "Booked via inquiry"},
-        {"time": "6:30 pm", "name": "Strength", "note": "Group · drop-in with a heads up"},
+        {"time": "2:30 pm", "name": "1-on-1 Personal Training", "note": "Booked via inquiry"},
     ]},
     {"name": "Tuesday", "sessions": [
-        {"time": "7:00 am", "name": "1-on-1 slots", "note": "Booked via inquiry"},
-        {"time": "12:00 pm", "name": "Strength", "note": "Small group · 6 max"},
-        {"time": "6:30 pm", "name": "1-on-1 slots", "note": "Booked via inquiry"},
+        {"time": "12:00 pm", "name": "Strength Training", "note": "Small group · 4 max"},
+        {"time": "2:30 pm", "name": "1-on-1 Personal Training", "note": "Booked via inquiry"},
     ]},
     {"name": "Wednesday", "sessions": [
-        {"time": "6:30 am", "name": "HIIT", "note": "Group · drop-in with a heads up"},
-        {"time": "9:30 am", "name": "Pre/Postnatal", "note": "Small group · 6 max"},
-        {"time": "6:30 pm", "name": "Strength", "note": "Group · drop-in with a heads up"},
-    ]},
-    {"name": "Thursday", "sessions": [
-        {"time": "7:00 am", "name": "1-on-1 slots", "note": "Booked via inquiry"},
-        {"time": "12:00 pm", "name": "Strength", "note": "Small group · 6 max"},
-        {"time": "6:30 pm", "name": "HIIT", "note": "Group · drop-in with a heads up"},
+        {"time": "11:00 am", "name": "1-on-1 Personal Training", "note": "Booked via inquiry"},
+        {"time": "1:00 pm", "name": "1-on-1 Personal Training", "note": "Booked via inquiry"},
     ]},
     {"name": "Friday", "sessions": [
-        {"time": "6:30 am", "name": "HIIT", "note": "Group · drop-in with a heads up"},
-        {"time": "9:30 am", "name": "Pre/Postnatal", "note": "Small group · 6 max"},
-        {"time": "11:00 am", "name": "1-on-1 slots", "note": "Booked via inquiry"},
+        {"time": "10:00 am", "name": "Pilates Sculpt", "note": "Small group · 4 max"},
+        {"time": "11:15 am", "name": "HIIT", "note": "Small group · 4 max"},
     ]},
-    {"name": "Saturday", "sessions": [
-        {"time": "8:00 am", "name": "Strength", "note": "Group · drop-in with a heads up"},
-        {"time": "9:30 am", "name": "Small group blend", "note": "Small group · 8 max"},
-    ]},
-    {"name": "Sunday", "sessions": []},
 ]
+
+SITE_URL = "https://nik.fit"
 
 PAGES = {
     "index.html": {
         "page": "home",
+        "description": "Private personal training studio in Teaneck, NJ. 1-on-1 training and small-group Strength, Pilates Sculpt, and HIIT for women. Postnatal recovery and body-confidence programs.",
+        "canonical": f"{SITE_URL}/",
         "schedule_preview": schedule_preview,
         "testimonials": testimonials,
     },
     "schedule.html": {
         "page": "schedule",
-        "week_of": "May 25",
+        "description": "This week's small-group and 1-on-1 schedule at Nikfit in Teaneck, NJ. 4-person cap on group classes; send an inquiry to claim a spot.",
+        "canonical": f"{SITE_URL}/schedule.html",
+        "week_of": "June 1",
         "days": days,
     },
     "inquire.html": {
         "page": "inquire",
+        "description": "Inquire about personal training, small-group classes, or pre/postnatal coaching at Nikfit in Teaneck, NJ. Nikki replies within a day.",
+        "canonical": f"{SITE_URL}/inquire.html",
     },
     "thanks.html": {
         "page": "inquire",
+        "description": "Thanks for your inquiry. Nikki replies within a day.",
+        "canonical": f"{SITE_URL}/thanks.html",
     },
 }
 
 
-def main() -> None:
+def main(dev: bool = False) -> None:
     OUT.mkdir(exist_ok=True)
     for name, ctx in PAGES.items():
-        rendered = env.get_template(name).render(**ctx)
+        rendered = env.get_template(name).render(dev=dev, **ctx)
         (OUT / name).write_text(rendered)
     shutil.copy(STATIC / "style.css", OUT / "style.css")
     shutil.copy(STATIC / "inquiry-validator.js", OUT / "inquiry-validator.js")
     shutil.copy(STATIC / "phone-format.js", OUT / "phone-format.js")
-    print(f"Rendered {len(PAGES)} pages to {OUT}")
+    shutil.copy(STATIC / "og-image.jpg", OUT / "og-image.jpg")
+    if dev:
+        shutil.copy(STATIC / "livereload.js", OUT / "livereload.js")
+    print(f"Rendered {len(PAGES)} pages to {OUT} (dev={dev})")
     print(f"  → file://{(OUT / 'index.html').resolve()}")
 
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--dev", action="store_true", help="Inject live-reload script for local dev")
+    args = ap.parse_args()
+    main(dev=args.dev)

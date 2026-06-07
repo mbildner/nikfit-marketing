@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Nikfit{% endblock %}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ canonical }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nikfit">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="https://nik.fit/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ self.title() }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="https://nik.fit/og-image.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
@@ -12,7 +29,7 @@
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="index.html" class="brand">Nikfit</a>
+      <a href="index.html" class="brand">Nikfit · Women's Studio</a>
       <div class="nav-links">
         <a href="schedule.html" {% if page == 'schedule' %}class="active"{% endif %}>Schedule</a>
         <a href="inquire.html" {% if page == 'inquire' %}class="active"{% endif %}>Inquire</a>
@@ -27,21 +44,20 @@
       <div class="footer-grid">
         <div>
           <h4>Find me</h4>
-          <a href="https://instagram.com/nikfit.training">@nikfit.training</a><br>
-          <a href="tel:+12015550127">(201) 555-0127</a><br>
-          hello@nikfit.studio
+          <a href="tel:+12017052307">(201) 705-2307</a><br>
+          <a href="mailto:Nikki.bildner@gmail.com">Nikki.bildner@gmail.com</a>
         </div>
         <div>
           <h4>Where</h4>
           Teaneck, NJ<br>
-          Serving Bergen County<br>
-          Mon–Sat · By appointment
+          Serving Bergen County
         </div>
       </div>
       <div class="footer-bottom">
-        © 2026 Nikfit · Coached by Nikki Stein
+        © 2026 Nikfit · Coached by Nechama Bildner
       </div>
     </div>
   </footer>
+  {% if dev %}<script src="livereload.js" defer></script>{% endif %}
 </body>
 </html>

@@ -116,6 +116,10 @@ body {
 
 /* Buttons */
 .btns { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.btn[href^="tel:"] { pointer-events: none; cursor: default; opacity: 0.55; }
+@media (pointer: coarse) {
+  .btn[href^="tel:"] { pointer-events: auto; cursor: pointer; opacity: 1; }
+}
 .btn {
   display: inline-block;
   padding: 0.85rem 1.4rem;
@@ -213,9 +217,7 @@ body {
   gap: 0.9rem;
   padding: 0.55rem 0;
   align-items: baseline;
-  border-bottom: 1px dashed rgba(162, 171, 181, 0.25);
 }
-.session:last-child { border-bottom: none; }
 .session-time { color: var(--c-fg); font-weight: 500; font-variant-numeric: tabular-nums; }
 .session-name { color: var(--c-fg); }
 .session-note { color: var(--c-muted); font-size: 0.86rem; display: block; margin-top: 0.1rem; }

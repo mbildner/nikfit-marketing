@@ -5,6 +5,10 @@ __pycache__/
 .env
 .env.*
 
+# dev-only artifacts written by scripts/dev-watch.sh
+out/.version
+out/livereload.js
+
 # Yarn (PnP off via .yarnrc.yml; only install state needs ignoring)
 node_modules/
 .yarn/*
