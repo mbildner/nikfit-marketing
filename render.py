@@ -26,6 +26,16 @@ env = Environment(
     autoescape=select_autoescape(["html"]),
 )
 
+# Display font used by .brand and .h1. Swap = edit this one dict; render.py
+# rewrites both the Google Fonts <link> and the --font-display CSS var.
+# Example swap: "Cormorant Garamond", "Cormorant+Garamond:ital,wght@0,400;0,600;1,400",
+# "'Cormorant Garamond', Georgia, serif".
+DISPLAY_FONT = {
+    "name": "Playfair Display",
+    "google_url_part": "Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600",
+    "css_family": "'Playfair Display', Georgia, serif",
+}
+
 schedule_preview = [
     {"day": "Mon", "time": "6:30a", "name": "HIIT", "tag": "Group", "tag_key": "hiit"},
     {"day": "Mon", "time": "9:30a", "name": "Pre/Postnatal", "tag": "Small group", "tag_key": "pre"},
@@ -135,7 +145,7 @@ PAGES = {
 def main(dev: bool = False) -> None:
     OUT.mkdir(exist_ok=True)
     for name, ctx in PAGES.items():
-        rendered = env.get_template(name).render(dev=dev, **ctx)
+        rendered = env.get_template(name).render(dev=dev, display_font=DISPLAY_FONT, **ctx)
         (OUT / name).write_text(rendered)
     shutil.copy(STATIC / "style.css", OUT / "style.css")
     shutil.copy(STATIC / "inquiry-validator.js", OUT / "inquiry-validator.js")

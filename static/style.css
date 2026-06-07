@@ -9,6 +9,9 @@
   --c-muted: #6c6c70;
   --font-serif: 'Fraunces', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  /* --font-display is set inline in templates/base.html from render.py's DISPLAY_FONT constant.
+     Edit DISPLAY_FONT in render.py to swap; the default below is a safety fallback. */
+  --font-display: 'Playfair Display', Georgia, serif;
   --max: 760px;
 }
 
@@ -43,7 +46,7 @@ body {
   justify-content: space-between;
 }
 .brand {
-  font-family: 'Playfair Display', var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.4rem;
   letter-spacing: -0.02em;
@@ -97,7 +100,7 @@ body {
   margin-bottom: 1.1rem;
 }
 .h1 {
-  font-family: 'Playfair Display', var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(2.2rem, 5.5vw, 3.4rem);
   line-height: 1.08;
