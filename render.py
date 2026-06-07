@@ -143,6 +143,7 @@ def main(dev: bool = False) -> None:
     shutil.copy(STATIC / "og-image.jpg", OUT / "og-image.jpg")
     shutil.copy(STATIC / "robots.txt", OUT / "robots.txt")
     shutil.copy(STATIC / "sitemap.xml", OUT / "sitemap.xml")
+    shutil.copy(STATIC / "favicon.svg", OUT / "favicon.svg")
     if dev:
         shutil.copy(STATIC / "livereload.js", OUT / "livereload.js")
     print(f"Rendered {len(PAGES)} pages to {OUT} (dev={dev})")
