@@ -1,34 +1,33 @@
 # nikfit-marketing
 
-> **⚠️ Auto-managed snapshot repo (as of NIKFIT-16).** Source of truth is now
-> `mbildner/nikfit` (`app/marketing/`). The `out/` directory here is
-> overwritten on every deploy from nikfit's admin console — each commit
-> tagged `Deploy <id>: ...` is a Netlify deployment snapshot, not a source
-> edit. Hand-edits to `templates/` / `render.py` here are no longer
-> authoritative; the live site won't reflect them.
->
-> Pre-NIKFIT-16 deploy mechanism (Netlify continuous-deploy on push to main)
-> is still active as a transitional state — slated to be disconnected so
-> nikfit's Deploy button is the only writer.
-
 Static marketing site for Nikfit (`nik.fit`). Hosted on Netlify, deployed from `main`.
 
-## Stack
+## Structure
 
-- Jinja2 templates → static HTML (no build step on Netlify; `out/` is committed)
-- Plain CSS, no JS framework
-- Netlify Forms handles the inquiry submission (no backend)
+Everything Netlify serves lives under `site/` — one directory, no templating, no build step. Each HTML page is fully self-contained; shared chrome (nav, footer, SEO meta, fonts) is duplicated across pages rather than abstracted, since the page count is small and edits go through Claude (which can keep them in sync with one prompt).
 
-## Local dev
-
-```bash
-uv run render.py        # rebuild out/
-open out/index.html     # preview
-
-corepack enable         # one-time: bundles yarn with Node
-yarn install            # one-time: no runtime deps, but keeps lockfile honest
-yarn test               # run JS unit tests
 ```
+site/
+├── index.html         home: hero, "what people say", CTAs
+├── schedule.html      weekly schedule
+├── inquire.html       inquiry form (Netlify Forms)
+├── thanks.html        post-submission landing (noindex)
+├── style.css
+├── inquiry-validator.js
+├── phone-format.js
+├── favicon.svg
+├── og-image.jpg
+├── robots.txt
+└── sitemap.xml
+```
+
+## Editing
+
+Two ways to edit:
+
+1. **Via nikfit's MCP editor** (claude.ai → connector at `https://nikfit.fly.dev/admin/marketing/mcp`). Each tool call commits to a working clone of this repo. Clicking Deploy at `https://nikfit.fly.dev/admin/marketing` pushes pending commits to GitHub; Netlify auto-builds.
+
+2. **Hand-edit on a branch** via `git`. PR + merge to main; Netlify auto-deploys.
 
 ## Quality tooling (one-time setup)
 
@@ -37,20 +36,15 @@ uv tool install pre-commit   # or: brew install pre-commit
 pre-commit install           # wires up the git pre-commit hook
 ```
 
-Hooks installed (see `.pre-commit-config.yaml`):
-- file hygiene (trailing whitespace, EOL, JSON/YAML/TOML syntax, max file size)
-- `ruff check` (lint, with bandit-style security checks)
-- `gitleaks` (refuse committed secrets)
-- render-check (out/ matches templates after re-render)
+Hooks: file hygiene, `ruff check`, `gitleaks`, `yarn test`.
 
-Bypass for emergencies, with a reason in the commit message:
 ```bash
-git commit --no-verify
+git commit --no-verify   # emergency bypass — justify in commit message
 ```
 
 ## Deploy
 
-Push to `main`. Netlify auto-deploys `out/` within ~10 seconds.
+Push to `main`. Netlify auto-deploys `site/` within ~30 seconds.
 
 ```bash
 netlify deploy --prod   # optional manual deploy

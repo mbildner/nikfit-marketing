@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Nikfit{% endblock %}</title>
-  <meta name="description" content="{{ description }}">
-  <link rel="canonical" href="{{ canonical }}">
+  <title>Nikfit · Personal training in Teaneck, NJ</title>
+  <meta name="description" content="Private personal training studio in Teaneck, NJ. 1-on-1 training and small-group Strength, Pilates Sculpt, and HIIT for women. Postnatal recovery and body-confidence programs.">
+  <link rel="canonical" href="https://nik.fit/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nikfit">
-  <meta property="og:title" content="{{ self.title() }}">
-  <meta property="og:description" content="{{ description }}">
-  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:title" content="Nikfit · Personal training in Teaneck, NJ">
+  <meta property="og:description" content="Private personal training studio in Teaneck, NJ. 1-on-1 training and small-group Strength, Pilates Sculpt, and HIIT for women. Postnatal recovery and body-confidence programs.">
+  <meta property="og:url" content="https://nik.fit/">
   <meta property="og:image" content="https://nik.fit/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The Nikfit private studio - bright window light, plants, and a leather sofa in the entryway.">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ self.title() }}">
-  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:title" content="Nikfit · Personal training in Teaneck, NJ">
+  <meta name="twitter:description" content="Private personal training studio in Teaneck, NJ. 1-on-1 training and small-group Strength, Pilates Sculpt, and HIIT for women. Postnatal recovery and body-confidence programs.">
   <meta name="twitter:image" content="https://nik.fit/og-image.jpg">
   <meta name="twitter:image:alt" content="The Nikfit private studio - bright window light, plants, and a leather sofa in the entryway.">
 
@@ -31,7 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>:root { --font-display: 'Playfair Display', Georgia, serif; }</style>
-  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+
 
   <script type="application/ld+json">
   {
@@ -129,38 +129,66 @@
     ]
   }
   </script>
-  {% if breadcrumb_jsonld %}
-  <script type="application/ld+json">
-{{ breadcrumb_jsonld | safe }}
-  </script>
-  {% endif %}
+
 </head>
 <body>
   <nav class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="brand">Nikfit<span class="brand-suffix"> · Women's Studio</span></a>
       <div class="nav-links">
-        <a href="schedule.html" {% if page == 'schedule' %}class="active"{% endif %}>Schedule</a>
-        <a href="inquire.html" {% if page == 'inquire' %}class="active"{% endif %}>Inquire</a>
+        <a href="schedule.html" >Schedule</a>
+        <a href="inquire.html" >Inquire</a>
       </div>
     </div>
   </nav>
 
-  {% if breadcrumb %}
-  <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-      {%- for crumb in breadcrumb -%}
-        {%- if loop.last -%}
-          <span aria-current="page">{{ crumb.name }}</span>
-        {%- else -%}
-          <a href="{{ crumb.url }}">{{ crumb.name }}</a><span class="sep" aria-hidden="true"> › </span>
-        {%- endif -%}
-      {%- endfor %}
-    </div>
-  </nav>
-  {% endif %}
 
-  {% block content %}{% endblock %}
+
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Women's Private Training Studio · Teaneck, NJ</div>
+    <h1 class="h1">Life happens.<br><em>Let's get you back to you.</em></h1>
+    <p class="lede">Nikfit studio is a full-service studio built for women who want real results. Personal training, intimate group classes, nutrition and meal planning, virtual coaching, and fully customized independent monthly programming. Thoughtfully personalized. Deeply intentional.</p>
+    <div class="btns">
+      <a href="inquire.html" class="btn btn-primary">Send inquiry</a>
+      <a href="schedule.html" class="btn btn-secondary">See this week's schedule</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>The Experience</h2>
+    <p>This is your time. Inside Nikfit's private studio, every detail is designed around you, your body, your goals, your life. With 10+ years of personal training experience and program design, I'll build a program tailored to help you look and feel like the best version of yourself.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Train With Me</h2>
+    <p>One-on-one personal training, intimate Pilates sculpt, HIIT, and strength classes - all in a private studio, all built around you.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <a href="schedule.html" class="btn btn-secondary">View Schedule & Book a Class</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What people say</h2>
+    <blockquote class="quote">At my daughter's suggestion, I started working with Nikki six years ago and haven't stopped since. No two workouts are identical - she keeps things fresh and adapts to my evolving needs, always challenging me to reach new goals while encouraging me in the most positive way. I call her my 'fitness coach' because she is so much more than a personal trainer.</blockquote>
+    <div class="quote-attr">Ronit H., Teaneck</div>
+    <blockquote class="quote">Taking classes with Nikki has been an absolute blast. Every class challenges me in the best way, pushing me beyond what I thought I could do while still making it fun and empowering. I leave feeling stronger, more energized, and proud of what my body can accomplish. Nikki has created something really special and I'm so grateful to be a part of it.</blockquote>
+    <div class="quote-attr">Denise F., Teaneck</div>
+    <blockquote class="quote">Working out has never been a hobby of mine until I met Nikki. She's fantastic! I've been going to personal trainers for years and always dreaded the sessions. Now I'm always eager and excited. Nikki empowers you while making you feel like you can do anything. I do both private training and group Pilates and they're both so much fun. I gave birth to my third baby in August and was looking to tone up my post-baby body. Nikki is the best at what she does. Give her a shot, you won't be disappointed.</blockquote>
+    <div class="quote-attr">Jordana S., Teaneck</div>
+  </div>
+</section>
+
 
   <footer class="footer">
     <div class="container">
@@ -181,6 +209,6 @@
       </div>
     </div>
   </footer>
-  {% if dev %}<script src="livereload.js" defer></script>{% endif %}
+
 </body>
 </html>
