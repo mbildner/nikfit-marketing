@@ -1,4 +1,7 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
+{% set page = "home" %}
+{% set description = "Private personal training studio in Teaneck, NJ. 1-on-1 training and small-group Strength, Pilates Sculpt, and HIIT for women. Postnatal recovery and body-confidence programs." %}
+{% set canonical = "https://nik.fit/" %}
 {% block title %}Nikfit · Personal training in Teaneck, NJ{% endblock %}
 
 {% block content %}
@@ -37,10 +40,12 @@
 <section class="section">
   <div class="container">
     <h2>What people say</h2>
-    {% for t in testimonials %}
-    <blockquote class="quote">{{ t.quote }}</blockquote>
-    <div class="quote-attr">{{ t.name }}, {{ t.town }}</div>
-    {% endfor %}
+    <blockquote class="quote">At my daughter's suggestion, I started working with Nikki six years ago and haven't stopped since. No two workouts are identical - she keeps things fresh and adapts to my evolving needs, always challenging me to reach new goals while encouraging me in the most positive way. I call her my 'fitness coach' because she is so much more than a personal trainer.</blockquote>
+    <div class="quote-attr">Ronit H., Teaneck</div>
+    <blockquote class="quote">Taking classes with Nikki has been an absolute blast. Every class challenges me in the best way, pushing me beyond what I thought I could do while still making it fun and empowering. I leave feeling stronger, more energized, and proud of what my body can accomplish. Nikki has created something really special and I'm so grateful to be a part of it.</blockquote>
+    <div class="quote-attr">Denise F., Teaneck</div>
+    <blockquote class="quote">Working out has never been a hobby of mine until I met Nikki. She's fantastic! I've been going to personal trainers for years and always dreaded the sessions. Now I'm always eager and excited. Nikki empowers you while making you feel like you can do anything. I do both private training and group Pilates and they're both so much fun. I gave birth to my third baby in August and was looking to tone up my post-baby body. Nikki is the best at what she does. Give her a shot, you won't be disappointed.</blockquote>
+    <div class="quote-attr">Jordana S., Teaneck</div>
   </div>
 </section>
 {% endblock %}
