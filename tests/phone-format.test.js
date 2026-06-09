@@ -5,7 +5,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const { formatPhone } = require('../static/phone-format.js');
+const { formatPhone } = require('../site/phone-format.js');
 
 test('empty and whitespace inputs', () => {
   assert.equal(formatPhone(''), '');

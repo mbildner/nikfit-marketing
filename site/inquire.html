@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thanks · Nikfit</title>
-  <meta name="description" content="Thanks for your inquiry. Nikki replies within a day.">
-  <link rel="canonical" href="https://nik.fit/thanks.html">
+  <title>Inquire · Nikfit</title>
+  <meta name="description" content="Inquire about personal training, small-group classes, or pre/postnatal coaching at Nikfit in Teaneck, NJ. Nikki replies within a day.">
+  <link rel="canonical" href="https://nik.fit/inquire.html">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nikfit">
-  <meta property="og:title" content="Thanks · Nikfit">
-  <meta property="og:description" content="Thanks for your inquiry. Nikki replies within a day.">
-  <meta property="og:url" content="https://nik.fit/thanks.html">
+  <meta property="og:title" content="Inquire · Nikfit">
+  <meta property="og:description" content="Inquire about personal training, small-group classes, or pre/postnatal coaching at Nikfit in Teaneck, NJ. Nikki replies within a day.">
+  <meta property="og:url" content="https://nik.fit/inquire.html">
   <meta property="og:image" content="https://nik.fit/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The Nikfit private studio - bright window light, plants, and a leather sofa in the entryway.">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Thanks · Nikfit">
-  <meta name="twitter:description" content="Thanks for your inquiry. Nikki replies within a day.">
+  <meta name="twitter:title" content="Inquire · Nikfit">
+  <meta name="twitter:description" content="Inquire about personal training, small-group classes, or pre/postnatal coaching at Nikfit in Teaneck, NJ. Nikki replies within a day.">
   <meta name="twitter:image" content="https://nik.fit/og-image.jpg">
   <meta name="twitter:image:alt" content="The Nikfit private studio - bright window light, plants, and a leather sofa in the entryway.">
 
@@ -31,7 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>:root { --font-display: 'Playfair Display', Georgia, serif; }</style>
-  <meta name="robots" content="noindex">
+
 
   <script type="application/ld+json">
   {
@@ -129,7 +129,20 @@
     ]
   }
   </script>
-  
+
+  <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nik.fit/"},
+    {"@type": "ListItem", "position": 2, "name": "Inquire", "item": "https://nik.fit/inquire.html"}
+  ]
+}
+
+  </script>
+
 </head>
 <body>
   <nav class="nav">
@@ -142,14 +155,78 @@
     </div>
   </nav>
 
-  
 
-  
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container"><a href="index.html">Home</a><span class="sep" aria-hidden="true"> › </span><span aria-current="page">Inquire</span>
+    </div>
+  </nav>
+
+
+
 <section class="hero compact">
   <div class="container">
-    <div class="eyebrow">Inquiry received</div>
-    <h1 class="h1">Got it. <em>Thank you.</em></h1>
-    <p class="lede">I'll get back to you within a day. In the meantime, feel free to look around or come back to the <a href="schedule.html">schedule</a>.</p>
+    <div class="eyebrow">Inquire</div>
+    <h1 class="h1">Let's <em>talk.</em></h1>
+    <p class="lede">Tell me a little about what you're hoping to work on. I read every inquiry myself and usually reply within a day.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="container">
+    <div class="note">
+      <strong>What happens next:</strong> a complimentary 15-minute call to learn about your goals and map out a plan together.
+    </div>
+
+    <form action="/thanks.html" method="POST"
+          name="inquiry"
+          data-netlify="true"
+          netlify-honeypot="company">
+      <input type="hidden" name="form-name" value="inquiry">
+      <p hidden aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="company" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required
+               aria-describedby="name-error"
+               data-error="Please enter your name.">
+        <span class="err" id="name-error" aria-live="polite"></span>
+      </div>
+      <p class="field-group-hint">How should I reach you? Share whichever you prefer.</p>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone"
+               placeholder="(201) 555-0123"
+               pattern="(?=(?:\D*\d){10})[\d\s\(\)\.\-+]{10,30}"
+               aria-describedby="phone-error"
+               data-error="Please enter a phone number with at least 10 digits.">
+        <span class="err" id="phone-error" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"
+               pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+               aria-describedby="email-error"
+               data-error="Please enter a valid email address.">
+        <span class="err" id="email-error" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="interest">What are you interested in?</label>
+        <select id="interest" name="interest">
+          <option>One-on-one training</option>
+          <option>Small group</option>
+          <option>Pre/postnatal coaching</option>
+          <option>Just exploring</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Anything I should know? (optional)</label>
+        <textarea id="message" name="message" placeholder="Injuries, goals, schedule constraints, what you've tried before."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send inquiry</button>
+    </form>
+    <script src="phone-format.js" defer></script>
+    <script src="inquiry-validator.js" defer></script>
   </div>
 </section>
 
@@ -173,6 +250,6 @@
       </div>
     </div>
   </footer>
-  
+
 </body>
 </html>

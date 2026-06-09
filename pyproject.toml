@@ -13,7 +13,7 @@ dev = [
 [tool.ruff]
 target-version = "py311"
 line-length = 100
-extend-exclude = [".venv", "out"]
+extend-exclude = [".venv", "site"]
 
 [tool.ruff.lint]
 # E/W/F: pycodestyle + pyflakes basics
@@ -26,6 +26,3 @@ select = ["E", "W", "F", "B", "S", "UP", "I"]
 ignore = [
     "E501",   # line length is informational; ruff format would enforce
 ]
-
-[tool.ruff.lint.per-file-ignores]
-# render.py uses an uv inline script header that lints fine; no overrides needed.

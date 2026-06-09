@@ -40,24 +40,6 @@ jobs:
       - name: yarn test
         run: yarn test
 
-  render-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - uses: astral-sh/setup-uv@38f3f104447c67c051c4a08e39b64a148898af3a # v4
-
-      - name: Render templates
-        run: uv run render.py
-
-      - name: Verify out/ matches committed templates
-        run: |
-          if ! git diff --quiet out/; then
-            echo "::error::out/ is stale. Run 'uv run render.py' locally and commit the diff."
-            git --no-pager diff out/ | head -50
-            exit 1
-          fi
-
   configure-netlify:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
