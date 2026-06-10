@@ -12,7 +12,7 @@
   /* --font-display is set inline in templates/base.html from render.py's DISPLAY_FONT constant.
      Edit DISPLAY_FONT in render.py to swap; the default below is a safety fallback. */
   --font-display: 'Playfair Display', Georgia, serif;
-  --max: 760px;
+  --max: 1100px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
