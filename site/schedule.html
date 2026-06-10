@@ -205,6 +205,72 @@
   </div>
 </section>
 
+<section class="section" style="background: var(--c-bg); border-top: 1px solid rgba(162,171,181,0.25);">
+  <div class="container">
+    <h2 style="font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 400; margin-bottom: 0.5rem;">Let's find the right training path for you.</h2>
+    <p style="color: var(--c-muted); margin-bottom: 2rem;">Fill out the form below and Nikki will be in touch personally.</p>
+    <form action="/thanks.html" method="POST"
+          name="booking-inquiry"
+          data-netlify="true"
+          netlify-honeypot="company">
+      <input type="hidden" name="form-name" value="booking-inquiry">
+      <p hidden aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="company" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <div class="field">
+        <label for="b-name">Name</label>
+        <input type="text" id="b-name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="b-email">Email</label>
+        <input type="email" id="b-email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="b-goal">What is your main goal?</label>
+        <select id="b-goal" name="goal">
+          <option>Lose weight / tone up</option>
+          <option>Build strength</option>
+          <option>Rebuild after pregnancy</option>
+          <option>Improve energy and consistency</option>
+          <option>General fitness</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="b-experience">Experience level</label>
+        <select id="b-experience" name="experience">
+          <option>Beginner — new to structured training</option>
+          <option>Some experience — on and off</option>
+          <option>Intermediate — consistent but want more</option>
+          <option>Advanced — looking to level up</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="b-struggle">Biggest struggle right now</label>
+        <select id="b-struggle" name="struggle">
+          <option>Staying consistent</option>
+          <option>Not seeing results</option>
+          <option>Not knowing where to start</option>
+          <option>Injury or physical limitation</option>
+          <option>Motivation and accountability</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="b-type">Preferred training type</label>
+        <select id="b-type" name="training_type">
+          <option>1-on-1 private training</option>
+          <option>Small group classes</option>
+          <option>Virtual coaching</option>
+          <option>Custom monthly programming</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Let's find your starting point</button>
+    </form>
+  </div>
+</section>
+
 <section class="section" style="padding-top:1rem; display:none;">
   <div class="container">
     <div class="day-block">
