@@ -350,4 +350,5 @@ form textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
   .hero .container { text-align: center; }
   .hero .btns { justify-content: center; }
   .session { grid-template-columns: 4.6rem 1fr; }
+  .section { padding: 3.75rem 0; }
 }
