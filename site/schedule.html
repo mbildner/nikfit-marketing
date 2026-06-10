@@ -163,18 +163,51 @@
 
 
 
-<section class="hero compact" id="schedule">
-  <div class="container">
-    <div class="eyebrow">Booking Page</div>
-    <h1 class="h1">Start your training journey.</h1>
-    <p class="lede">Booking at Nikfit is personal. Every new client begins with a short consultation so we can understand your goals and recommend the right starting point.</p>
-    <div class="btns">
-      <a href="#schedule" class="btn btn-primary">Send inquiry</a>
-      <a href="#schedule" class="btn btn-secondary">View schedule</a>
+<section id="schedule" style="padding: 4rem 0 2rem;">
+  <div class="container" style="max-width: 520px;">
+
+    <div id="gate-view">
+      <p class="eyebrow" style="margin-bottom: 1rem;">Members only</p>
+      <h1 class="h1" style="margin-bottom: 1.25rem;">This page is for<br>current Nikfit <em>clients.</em></h1>
+      <p style="color: var(--c-muted); line-height: 1.75; margin-bottom: 2rem; font-size: 0.97rem;">If you're already training with Nikki, you received a private link in your welcome message. Reach out to Nikki directly if you need access.</p>
+
+      <p style="font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-gray-mid); font-weight: 500; margin-bottom: 0.6rem;">Current client? Enter your code</p>
+      <div style="display: flex; gap: 0.6rem; margin-bottom: 2rem;">
+        <input type="password" id="access-code" placeholder="Access code" style="flex: 1; padding: 0.75rem 1rem; border: 1px solid rgba(31,31,34,0.16); border-radius: 8px; font-size: 0.95rem; font-family: inherit; background: #fff; color: var(--c-fg);">
+        <button onclick="checkCode()" style="padding: 0.75rem 1.2rem; border-radius: 8px; border: 1px solid rgba(31,31,34,0.16); background: var(--c-bg); color: var(--c-fg); font-size: 0.95rem; font-family: inherit; cursor: pointer;">Enter</button>
+      </div>
+      <p id="gate-error" style="font-size: 0.85rem; color: #c53030; margin-top: -1.5rem; margin-bottom: 1.5rem; display: none;">That code isn't right. Reach out to Nikki if you need help.</p>
+
+      <hr style="border: none; border-top: 1px solid rgba(162,171,181,0.25); margin: 2rem 0;">
+      <p style="font-size: 0.85rem; color: var(--c-muted); font-style: italic; margin-bottom: 1rem;">Not a client yet?</p>
+      <a href="index.html#inquiry-form" class="btn btn-primary">Start here →</a>
     </div>
-    <p style="font-size: 0.8rem; color: var(--c-muted); margin-top: 1rem; font-style: italic;">Limited private training availability each month</p>
+
+    <div id="members-view" style="display: none;">
+      <!-- TODO MOSHE: Show full schedule + booking content here once password is verified -->
+      <p class="eyebrow" style="margin-bottom: 1rem;">Welcome back</p>
+      <h1 class="h1" style="margin-bottom: 1.25rem;">Good to see you.</h1>
+      <p style="color: var(--c-muted); line-height: 1.75;">Your schedule and booking options are coming soon. In the meantime reach out to Nikki directly to book.</p>
+    </div>
+
   </div>
 </section>
+
+<script>
+function checkCode() {
+  var code = document.getElementById('access-code').value.trim().toLowerCase();
+  /* TODO MOSHE: replace 'nikfit2026' with the real access code, or swap this for server-side auth */
+  if (code === 'nikfit2026') {
+    document.getElementById('gate-view').style.display = 'none';
+    document.getElementById('members-view').style.display = 'block';
+  } else {
+    document.getElementById('gate-error').style.display = 'block';
+  }
+}
+document.getElementById('access-code').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkCode();
+});
+</script>
 
 
 
