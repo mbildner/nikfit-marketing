@@ -91,6 +91,11 @@ body {
 .hero.compact {
   padding: 2.5rem 0 1.5rem;
 }
+/* Homepage hero: centered on all viewports (mobile already centers all
+   heroes via the 480px media query below). */
+.hero.centered .container { text-align: center; }
+.hero.centered .lede { margin-left: auto; margin-right: auto; }
+.hero.centered .btns { justify-content: center; }
 .eyebrow {
   font-size: 0.76rem;
   letter-spacing: 0.14em;
