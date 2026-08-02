@@ -3,7 +3,7 @@
 // must never block the form.
 // ES5 only; no arrow fns, no NodeList.forEach, no optional chaining.
 (function(){
-  var form = document.querySelector('form[name="inquiry"]');
+  var form = document.querySelector('form[name="booking-inquiry"], form[name="inquiry"]');
   if (!form) return;
   var nativeValidationOff = false;
   var safeWarn = function(msg, err){
@@ -89,7 +89,7 @@
     if (emailEl) emailEl.addEventListener('input', function(){ try { checkContactMethod(); paint(phoneEl); } catch (e) {} });
 
     // Phone auto-formatter (US "(XXX) XXX-XXXX", '+' prefix passes through).
-    // Defined in static/phone-format.js. If the file failed to load, skip
+    // Defined in phone-format.js. If the file failed to load, skip
     // silently — the input still works, just without auto-formatting.
     if (phoneEl && typeof window.formatPhone === 'function') {
       phoneEl.addEventListener('input', function(){

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schedule · Nikfit</title>
-  <meta name="description" content="This week&#39;s small-group and 1-on-1 schedule at Nikfit in Teaneck, NJ. 4-person cap on group classes; send an inquiry to claim a spot.">
+  <title>Apply · Nikfit</title>
+  <meta name="description" content="Apply to train at Nikfit in Teaneck, NJ. Tell Nikki about your goals and she&#39;ll personally reach out to find the right starting point for you.">
   <link rel="canonical" href="https://nik.fit/schedule.html">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nikfit">
-  <meta property="og:title" content="Schedule · Nikfit">
-  <meta property="og:description" content="This week&#39;s small-group and 1-on-1 schedule at Nikfit in Teaneck, NJ. 4-person cap on group classes; send an inquiry to claim a spot.">
+  <meta property="og:title" content="Apply · Nikfit">
+  <meta property="og:description" content="Apply to train at Nikfit in Teaneck, NJ. Tell Nikki about your goals and she&#39;ll personally reach out to find the right starting point for you.">
   <meta property="og:url" content="https://nik.fit/schedule.html">
   <meta property="og:image" content="https://nik.fit/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -18,8 +18,8 @@
   <meta property="og:image:alt" content="The Nikfit private studio - bright window light, plants, and a leather sofa in the entryway.">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Schedule · Nikfit">
-  <meta name="twitter:description" content="This week&#39;s small-group and 1-on-1 schedule at Nikfit in Teaneck, NJ. 4-person cap on group classes; send an inquiry to claim a spot.">
+  <meta name="twitter:title" content="Apply · Nikfit">
+  <meta name="twitter:description" content="Apply to train at Nikfit in Teaneck, NJ. Tell Nikki about your goals and she&#39;ll personally reach out to find the right starting point for you.">
   <meta name="twitter:image" content="https://nik.fit/og-image.jpg">
   <meta name="twitter:image:alt" content="The Nikfit private studio - bright window light, plants, and a leather sofa in the entryway.">
 
@@ -137,7 +137,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nik.fit/"},
-    {"@type": "ListItem", "position": 2, "name": "Schedule", "item": "https://nik.fit/schedule.html"}
+    {"@type": "ListItem", "position": 2, "name": "Apply", "item": "https://nik.fit/schedule.html"}
   ]
 }
 
@@ -149,8 +149,7 @@
     <div class="container nav-inner">
       <a href="index.html" class="brand">Nikfit<span class="brand-suffix"> · Women's Studio</span></a>
       <div class="nav-links">
-        <a href="schedule.html" class="active">Apply</a>
-        <a href="members.html">Book</a>
+        <a href="schedule.html#inquiry-form" class="active">Apply</a>
       </div>
     </div>
   </nav>
@@ -163,7 +162,7 @@
 
 <section class="hero compact" id="schedule">
   <div class="container">
-    <div class="eyebrow">Apply · Nikfit</div>
+    <div class="eyebrow">Apply</div>
     <h1 class="h1">Ready to feel like yourself again?</h1>
     <p class="lede">Booking at Nikfit is personal. Every new client begins with a short conversation so I can understand where you are, what you're working through, and what the right starting point looks like for you.</p>
     <p style="font-size: 0.95rem; color: var(--c-muted); margin-top: 1.25rem; font-style: italic; line-height: 1.7;">"I started Nikfit because I believe every woman deserves a space where she feels strong, seen, and supported — not judged. Fill out the form below and I'll personally reach out."<br><span style="font-style: normal; font-size: 0.85rem; color: var(--c-mauve); letter-spacing: 0.05em;">— Nikki</span></p>
@@ -182,7 +181,7 @@
         <span style="font-family: var(--font-display); font-size: 1.1rem; color: var(--c-mauve); min-width: 2rem; padding-top: 2px;">1</span>
         <div>
           <p style="font-weight: 500; margin-bottom: 0.25rem;">Submit your inquiry</p>
-          <p style="color: var(--c-muted); font-size: 0.95rem; margin: 0;">Tell us about your goals and experience.</p>
+          <p style="color: var(--c-muted); font-size: 0.95rem; margin: 0;">Share your goals, your experience, and where you're starting from.</p>
         </div>
       </div>
       <div style="display: flex; gap: 1.25rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(162,171,181,0.25); align-items: flex-start;">
@@ -216,56 +215,86 @@
         <label>Don't fill this out if you're human: <input name="company" tabindex="-1" autocomplete="off"></label>
       </p>
       <div class="field">
-        <label for="b-name">Name</label>
-        <input type="text" id="b-name" name="name" required>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required
+               aria-describedby="name-error"
+               data-error="Please enter your name.">
+        <span class="err" id="name-error" aria-live="polite"></span>
+      </div>
+      <p class="field-group-hint">How should Nikki reach you? Share whichever you prefer.</p>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone"
+               placeholder="(201) 555-0123"
+               pattern="(?=(?:\D*\d){10})[\d\s\(\)\.\-+]{10,30}"
+               aria-describedby="phone-error"
+               data-error="Please enter a phone number with at least 10 digits.">
+        <span class="err" id="phone-error" aria-live="polite"></span>
       </div>
       <div class="field">
-        <label for="b-email">Email</label>
-        <input type="email" id="b-email" name="email" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"
+               pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+               aria-describedby="email-error"
+               data-error="Please enter a valid email address.">
+        <span class="err" id="email-error" aria-live="polite"></span>
       </div>
       <div class="field">
-        <label for="b-goal">What is your main goal?</label>
-        <select id="b-goal" name="goal">
-          <option>Lose weight / tone up</option>
-          <option>Build strength</option>
-          <option>Rebuild after pregnancy</option>
-          <option>Improve energy and consistency</option>
-          <option>General fitness</option>
-          <option>Other</option>
-        </select>
+        <label for="message">Anything Nikki should know? (optional)</label>
+        <textarea id="message" name="message" placeholder="Injuries, goals, schedule constraints, what you've tried before."></textarea>
       </div>
-      <div class="field">
-        <label for="b-service">Which service are you interested in?</label>
-        <select id="b-service" name="service">
-          <option>Personal Training</option>
-          <option>Pilates / HIIT</option>
-          <option>Prenatal / Postnatal</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="b-struggle">Biggest struggle right now</label>
-        <select id="b-struggle" name="struggle">
-          <option>Staying consistent</option>
-          <option>Not seeing results</option>
-          <option>Not knowing where to start</option>
-          <option>Injury or physical limitation</option>
-          <option>Motivation and accountability</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="b-type">Preferred training type</label>
-        <select id="b-type" name="training_type">
-          <option>1-on-1 private training</option>
-          <option>Small group classes</option>
-          <option>Virtual coaching</option>
-          <option>Custom monthly programming</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Let's find your starting point</button>
+      <details class="form-more">
+        <summary>Optional: a few quick questions to give Nikki a head start</summary>
+        <div class="field">
+          <label for="goal">What is your main goal?</label>
+          <select id="goal" name="goal">
+            <option value="">Choose one (optional)</option>
+            <option>Lose weight / tone up</option>
+            <option>Build strength</option>
+            <option>Rebuild after pregnancy</option>
+            <option>Improve energy and consistency</option>
+            <option>General fitness</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="service">Which service are you interested in?</label>
+          <select id="service" name="service">
+            <option value="">Choose one (optional)</option>
+            <option>Personal Training</option>
+            <option>Pilates / HIIT</option>
+            <option>Prenatal / Postnatal</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="struggle">Biggest struggle right now</label>
+          <select id="struggle" name="struggle">
+            <option value="">Choose one (optional)</option>
+            <option>Staying consistent</option>
+            <option>Not seeing results</option>
+            <option>Not knowing where to start</option>
+            <option>Injury or physical limitation</option>
+            <option>Motivation and accountability</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="training_type">Preferred training type</label>
+          <select id="training_type" name="training_type">
+            <option value="">Choose one (optional)</option>
+            <option>1-on-1 private training</option>
+            <option>Small group classes</option>
+            <option>Virtual coaching</option>
+            <option>Custom monthly programming</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </details>
+      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Send inquiry</button>
     </form>
+    <script src="phone-format.js" defer></script>
+    <script src="inquiry-validator.js" defer></script>
   </div>
 </section>
 
@@ -276,83 +305,9 @@
     <p style="font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-mauve); font-weight: 500; margin-bottom: 1rem;">Still on the fence?</p>
     <h2 style="font-family: var(--font-display); font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 400; font-style: italic; margin-bottom: 1rem;">You don't need to be ready. You just need to reach out.</h2>
     <p style="color: var(--c-muted); line-height: 1.8; margin-bottom: 1.5rem;">There's no commitment when you inquire. Nikki will personally review your form, reach out, and together you'll figure out if this is the right fit — no pressure, no sales pitch.</p>
-    <a href="schedule.html#inquiry-form" class="btn btn-primary">Send a quick inquiry</a>
+    <a href="#inquiry-form" class="btn btn-primary">Send inquiry</a>
   </div>
 </section>
-
-<section class="section" style="padding-top:1rem; display:none;">
-  <div class="container">
-    <div class="day-block">
-      <h3>Monday</h3>
-      <div class="session">
-        <span class="session-time">2:30 pm</span>
-        <span>
-          1-on-1 Personal Training
-          <span class="session-note">Booked via inquiry</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="day-block">
-      <h3>Tuesday</h3>
-      <div class="session">
-        <span class="session-time">12:00 pm</span>
-        <span>
-          Strength Training
-          <span class="session-note">Small group · 4 max</span>
-        </span>
-      </div>
-      <div class="session">
-        <span class="session-time">2:30 pm</span>
-        <span>
-          1-on-1 Personal Training
-          <span class="session-note">Booked via inquiry</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="day-block">
-      <h3>Wednesday</h3>
-      <div class="session">
-        <span class="session-time">11:00 am</span>
-        <span>
-          1-on-1 Personal Training
-          <span class="session-note">Booked via inquiry</span>
-        </span>
-      </div>
-      <div class="session">
-        <span class="session-time">1:00 pm</span>
-        <span>
-          1-on-1 Personal Training
-          <span class="session-note">Booked via inquiry</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="day-block">
-      <h3>Friday</h3>
-      <div class="session">
-        <span class="session-time">10:00 am</span>
-        <span>
-          Pilates Sculpt
-          <span class="session-note">Small group · 4 max</span>
-        </span>
-      </div>
-      <div class="session">
-        <span class="session-time">11:15 am</span>
-        <span>
-          HIIT
-          <span class="session-note">Small group · 4 max</span>
-        </span>
-      </div>
-    </div>
-
-    <div style="margin-top:2.5rem">
-      <a href="inquire.html" class="btn btn-primary">Send inquiry</a>
-    </div>
-  </div>
-</section>
-
 
   <footer class="footer">
     <div class="container">
