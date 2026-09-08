@@ -24,9 +24,16 @@ body {
   font-size: 17px;
   line-height: 1.6;
   color: var(--c-fg);
-  background: var(--c-bg);
+  background: radial-gradient(1100px 560px at 50% 90px, #dff4f5, var(--c-bg) 68%) no-repeat var(--c-bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+/* On wider screens the glow becomes a defined "spotlight" — soften it into a
+   gentle ambient top-wash so desktop doesn't read as busy. */
+@media (min-width: 768px) {
+  body {
+    background: radial-gradient(1700px 780px at 50% -200px, #e8f7f8, var(--c-bg) 58%) no-repeat var(--c-bg);
+  }
 }
 
 .container {
@@ -38,7 +45,13 @@ body {
 /* Nav */
 .nav {
   padding: 1.4rem 0;
-  border-bottom: 1px solid rgba(162, 171, 181, 0.25);
+}
+/* Nav spans full width so the logo/name hugs the left edge instead of
+   floating in from the centered content column on wide screens. */
+.nav .container {
+  max-width: 100%;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 .nav-inner {
   display: flex;
@@ -53,19 +66,29 @@ body {
   color: var(--c-fg);
   text-decoration: none;
   display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
+  align-items: center;
+  gap: 10px;
 }
-.brand::after {
-  content: '';
-  width: 7px;
-  height: 7px;
+.brand-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+/* Large centered logo mark for the homepage hero */
+.hero-logo {
+  height: 120px;
+  width: auto;
+  display: block;
+  margin: 0 auto 1.25rem;
+}
+/* Circular framed headshot for the homepage hero */
+.hero-headshot {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  background: var(--c-cyan);
-  align-self: center;
-}
-@media (max-width: 600px) {
-  .brand-suffix { display: none; }
+  display: block;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 6px 24px rgba(60, 160, 165, 0.18);
 }
 .nav-links {
   display: flex;
@@ -82,6 +105,21 @@ body {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 6px;
+}
+/* Primary call-to-action in the nav — always visually obvious */
+.nav-links a.nav-cta {
+  background: var(--c-cyan);
+  color: var(--c-fg);
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+.nav-links a.nav-cta:hover {
+  background: #9d6cc6;
+  color: var(--c-fg);
+  transform: translateY(-1px);
 }
 
 /* Hero */
@@ -155,8 +193,15 @@ body {
 }
 .btn-secondary:hover { border-color: var(--c-mauve); color: var(--c-mauve); }
 .btn-hero {
-  padding: 1rem 1.75rem;
+  padding: 1.05rem 2rem;
   font-size: 1.02rem;
+}
+.btn-hero.btn-primary {
+  box-shadow: 0 8px 22px rgba(60, 160, 165, 0.26);
+}
+.btn-hero.btn-primary:hover {
+  box-shadow: 0 10px 26px rgba(60, 160, 165, 0.32);
+  transform: translateY(-1px);
 }
 .hero-cta-note {
   font-size: 0.84rem;
@@ -301,7 +346,7 @@ form input, form textarea, form select {
 form input:focus, form textarea:focus, form select:focus {
   outline: none;
   border-color: var(--c-cyan);
-  box-shadow: 0 0 0 3px rgba(109, 214, 218, 0.22);
+  box-shadow: 0 0 0 3px rgba(109, 214, 218, 0.3);
 }
 form input:user-invalid, form textarea:user-invalid,
 form input[aria-invalid="true"], form textarea[aria-invalid="true"] {
@@ -349,7 +394,7 @@ form .form-more .field:last-child { padding-bottom: 1.1rem; }
 .breadcrumbs [aria-current="page"] { color: var(--c-fg); }
 
 .note {
-  background: rgba(149, 217, 218, 0.18);
+  background: rgba(149, 217, 218, 0.25);
   border-left: 3px solid var(--c-cyan);
   padding: 0.9rem 1.1rem;
   border-radius: 6px;
@@ -401,4 +446,7 @@ form .form-more .field:last-child { padding-bottom: 1.1rem; }
   .hero .btns { justify-content: center; }
   .session { grid-template-columns: 4.6rem 1fr; }
   .section { padding: 3.75rem 0; }
+  /* Full-width stacked CTA buttons on mobile */
+  .btns { flex-direction: column; gap: 0.7rem; }
+  .btns .btn { width: 100%; }
 }
