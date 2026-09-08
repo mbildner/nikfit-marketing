@@ -458,8 +458,8 @@ form .form-more .field:last-child { padding-bottom: 1.1rem; }
   .hero-desk { display: block; }
 }
 .hero-2col { display: flex; align-items: center; gap: 2.5rem; min-height: 500px; }
-.hero-2col .col-text { flex: 1 1 54%; text-align: left; }
-.hero-2col .col-photo { flex: 1 1 46%; align-self: stretch; display: flex; align-items: flex-end; justify-content: flex-end; }
-.hero-2col .col-photo img { width: 100%; max-width: 470px; height: auto; display: block; }
+.hero-2col .col-text { flex: 1 1 50%; text-align: left; }
+.hero-2col .col-photo { flex: 1 1 50%; align-self: stretch; display: flex; align-items: flex-end; justify-content: flex-end; }
+.hero-2col .col-photo img { width: 100%; max-width: 100%; height: auto; display: block; }
 .hero-2col .col-text .lede { margin-left: 0; max-width: 520px; }
 .hero-2col .col-text .btns { justify-content: flex-start; }
