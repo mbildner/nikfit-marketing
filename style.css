@@ -450,3 +450,16 @@ form .form-more .field:last-child { padding-bottom: 1.1rem; }
   .btns { flex-direction: column; gap: 0.7rem; }
   .btns .btn { width: 100%; }
 }
+
+/* Desktop-only two-column hero; mobile keeps the existing centered hero untouched */
+.hero-desk { display: none; }
+@media (min-width: 820px) {
+  .hero-mob { display: none; }
+  .hero-desk { display: block; }
+}
+.hero-2col { display: flex; align-items: center; gap: 2.5rem; min-height: 500px; }
+.hero-2col .col-text { flex: 1 1 54%; text-align: left; }
+.hero-2col .col-photo { flex: 1 1 46%; align-self: stretch; display: flex; align-items: flex-end; justify-content: flex-end; }
+.hero-2col .col-photo img { width: 100%; max-width: 470px; height: auto; display: block; }
+.hero-2col .col-text .lede { margin-left: 0; max-width: 520px; }
+.hero-2col .col-text .btns { justify-content: flex-start; }
