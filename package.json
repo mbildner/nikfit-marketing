@@ -1,8 +1,0 @@
-{
-  "name": "nikfit-marketing",
-  "private": true,
-  "description": "Static marketing site for Nikfit (nik.fit). JS tooling lives here; Python tooling lives in pyproject.toml.",
-  "scripts": {
-    "test": "node --test tests/*.test.js"
-  }
-}
