@@ -1,7 +1,7 @@
 :root {
-  --c-cyan: #6dd6da;
-  --c-cyan-light: #95d9da;
-  --c-mauve: #ae8ca3;
+  --c-cyan: #2f9ea3;
+  --c-cyan-light: #cdeef0;
+  --c-mauve: #2f9ea3;
   --c-gray-mid: #817f82;
   --c-gray-light: #a2abb5;
   --c-bg: #faf9f6;
@@ -109,7 +109,7 @@ body {
 /* Primary call-to-action in the nav — always visually obvious */
 .nav-links a.nav-cta {
   background: var(--c-cyan);
-  color: var(--c-fg);
+  color: #fff;
   padding: 0.55rem 1.2rem;
   border-radius: 999px;
   font-weight: 600;
@@ -183,9 +183,9 @@ body {
 }
 .btn-primary {
   background: var(--c-cyan);
-  color: var(--c-fg);
+  color: #fff;
 }
-.btn-primary:hover { background: #5cccd1; }
+.btn-primary:hover { background: #26858a; }
 .btn-secondary {
   background: transparent;
   color: var(--c-fg);
@@ -346,7 +346,7 @@ form input, form textarea, form select {
 form input:focus, form textarea:focus, form select:focus {
   outline: none;
   border-color: var(--c-cyan);
-  box-shadow: 0 0 0 3px rgba(109, 214, 218, 0.3);
+  box-shadow: 0 0 0 3px rgba(47, 158, 163, 0.3);
 }
 form input:user-invalid, form textarea:user-invalid,
 form input[aria-invalid="true"], form textarea[aria-invalid="true"] {
