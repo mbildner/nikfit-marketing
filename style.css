@@ -451,15 +451,19 @@ form .form-more .field:last-child { padding-bottom: 1.1rem; }
   .btns .btn { width: 100%; }
 }
 
-/* Desktop-only two-column hero; mobile keeps the existing centered hero untouched */
-.hero-desk { display: none; }
-@media (min-width: 820px) {
+/* Hero: full-bleed on wide landscape screens; the centered circle hero
+   (.hero-mob) handles portrait tablets and phones. */
+.hero-fb { display: none; }
+.hero-mob { display: block; }
+@media (min-width: 1000px) and (orientation: landscape) {
   .hero-mob { display: none; }
-  .hero-desk { display: block; }
+  .hero-fb { display: block; }
+  .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 5; }
 }
-.hero-2col { display: flex; align-items: center; gap: 2.5rem; min-height: 500px; }
-.hero-2col .col-text { flex: 1 1 50%; text-align: left; }
-.hero-2col .col-photo { flex: 1 1 50%; align-self: stretch; display: flex; align-items: flex-end; justify-content: flex-end; }
-.hero-2col .col-photo img { width: 100%; max-width: 100%; height: auto; display: block; }
-.hero-2col .col-text .lede { margin-left: 0; max-width: 520px; }
-.hero-2col .col-text .btns { justify-content: flex-start; }
+.hero-fb { position: relative; overflow: hidden; height: 100vh;
+  background: radial-gradient(1300px 900px at 72% 4%, #fbd7ec, var(--c-bg) 66%); }
+.hero-fb .container { height: 100vh; display: flex; align-items: center; position: relative; z-index: 2; }
+.hero-fb .fb-copy { max-width: 470px; text-align: left; }
+.hero-fb .fb-copy .lede { margin-left: 0; max-width: 430px; }
+.hero-fb .fb-photo { position: absolute; right: 4%; bottom: 0; width: min(52vw, 720px); z-index: 1; }
+.hero-fb .fb-photo img { width: 100%; height: auto; display: block; }

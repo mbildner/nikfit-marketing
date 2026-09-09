@@ -21,3 +21,5 @@ node_modules/
 .claude/
 .env
 nudge.html
+mock-fullbleed.html
+mock-fullbleed-page.html
