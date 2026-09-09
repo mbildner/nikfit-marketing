@@ -1,10 +1,10 @@
 :root {
-  --c-cyan: #d1668f;
-  --c-cyan-light: #f6d3e2;
-  --c-mauve: #d1668f;
+  --c-cyan: #e14b8a;
+  --c-cyan-light: #f9c9df;
+  --c-mauve: #e14b8a;
   --c-gray-mid: #817f82;
   --c-gray-light: #a2abb5;
-  --c-bg: #faf9f6;
+  --c-bg: #fdf5fb;
   --c-fg: #1f1f22;
   --c-muted: #6c6c70;
   --font-serif: 'Fraunces', Georgia, serif;
@@ -24,7 +24,7 @@ body {
   font-size: 17px;
   line-height: 1.6;
   color: var(--c-fg);
-  background: radial-gradient(1100px 560px at 50% 90px, #fbe3ee, var(--c-bg) 68%) no-repeat var(--c-bg);
+  background: radial-gradient(1100px 560px at 50% 90px, #fbd7ec, var(--c-bg) 68%) no-repeat var(--c-bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -32,7 +32,7 @@ body {
    gentle ambient top-wash so desktop doesn't read as busy. */
 @media (min-width: 768px) {
   body {
-    background: radial-gradient(1700px 780px at 50% -200px, #fdeef5, var(--c-bg) 58%) no-repeat var(--c-bg);
+    background: radial-gradient(1700px 780px at 50% -200px, #fce4f2, var(--c-bg) 58%) no-repeat var(--c-bg);
   }
 }
 
@@ -88,7 +88,7 @@ body {
   border-radius: 50%;
   display: block;
   margin: 0 auto 1.5rem;
-  box-shadow: 0 6px 24px rgba(209, 102, 143, 0.18);
+  box-shadow: 0 6px 24px rgba(225, 75, 138, 0.18);
 }
 .nav-links {
   display: flex;
@@ -185,7 +185,7 @@ body {
   background: var(--c-cyan);
   color: #fff;
 }
-.btn-primary:hover { background: #bd5a80; }
+.btn-primary:hover { background: #c93d77; }
 .btn-secondary {
   background: transparent;
   color: var(--c-fg);
@@ -197,10 +197,10 @@ body {
   font-size: 1.02rem;
 }
 .btn-hero.btn-primary {
-  box-shadow: 0 8px 22px rgba(209, 102, 143, 0.26);
+  box-shadow: 0 8px 22px rgba(225, 75, 138, 0.26);
 }
 .btn-hero.btn-primary:hover {
-  box-shadow: 0 10px 26px rgba(209, 102, 143, 0.32);
+  box-shadow: 0 10px 26px rgba(225, 75, 138, 0.32);
   transform: translateY(-1px);
 }
 .hero-cta-note {
@@ -346,7 +346,7 @@ form input, form textarea, form select {
 form input:focus, form textarea:focus, form select:focus {
   outline: none;
   border-color: var(--c-cyan);
-  box-shadow: 0 0 0 3px rgba(209, 102, 143, 0.3);
+  box-shadow: 0 0 0 3px rgba(225, 75, 138, 0.3);
 }
 form input:user-invalid, form textarea:user-invalid,
 form input[aria-invalid="true"], form textarea[aria-invalid="true"] {
