@@ -1,0 +1,17 @@
+wrangler.jsonc
+.assetsignore
+.gitignore
+.git
+.wrangler
+README.md
+CNAME
+.nojekyll
+.claude
+.env
+.env.*
+.DS_Store
+nudge.html
+mock-fullbleed.html
+mock-fullbleed-page.html
+.netlify
+node_modules
