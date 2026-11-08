@@ -1,0 +1,11 @@
+{
+  // nik.fit on the HVDS Cloudflare account (SERVER-813), replacing GitHub Pages.
+  // Default html_handling is deliberate: "none" returns 404 for "/".
+  "name": "nikfit-marketing",
+  "account_id": "4a585749b0406870f6cfad1dc4308848",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": { "directory": "." },
+  "routes": [{ "pattern": "nik.fit", "custom_domain": true }]
+}
